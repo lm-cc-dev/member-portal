@@ -2,6 +2,8 @@
 
 A modern Next.js template with authentication powered by [Better Auth](https://www.better-auth.com/), [shadcn/ui](https://ui.shadcn.com/) components, and PostgreSQL database integration.
 
+[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/deploy/nextjs-better-auth-shadcn?referralCode=Z1xivh&utm_medium=integration&utm_source=template&utm_campaign=generic)
+
 ## Features
 
 - **Authentication**: Fully configured Better Auth with Google OAuth support
