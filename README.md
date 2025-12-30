@@ -145,7 +145,9 @@ Open [http://localhost:3000](http://localhost:3000) to see your application.
 - `npm run build` - Build for production
 - `npm run start` - Start production server
 - `npm run lint` - Run ESLint
-- `npm run db:push` - Push database schema changes
+- `npm run db:push` - Push database schema changes to your database
+- `npm run db:generate` - Generate SQL migration files
+- `npm run db:studio` - Open Drizzle Studio to browse your database
 
 ## Authentication Features
 
