@@ -5,5 +5,8 @@ export default function Page() {
     <div className="min-h-screen flex items-center justify-center p-4">
       <AuthSection />
     </div>
+    <div>
+      <p>Validating app update deployed!</p>
+    </div>
   );
 }
