@@ -1,0 +1,1 @@
+ALTER TABLE "user" ADD COLUMN "baserow_member_id" text;

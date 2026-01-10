@@ -12,6 +12,10 @@ export const user = pgTable("user", {
     .defaultNow()
     .$onUpdate(() => /* @__PURE__ */ new Date())
     .notNull(),
+
+  // Link to Baserow Members table
+  // Stores the Baserow row ID of the member record
+  baserowMemberId: text("baserow_member_id"),
 });
 
 export const session = pgTable(

@@ -1,6 +1,7 @@
 "use client";
 
 import { Contact } from "@/lib/hub/data";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { FeaturedContactCard } from "./featured-contact-card";
 import { ContactCard } from "./contact-card";
 
@@ -30,11 +31,16 @@ export function QuickContactsSection({ contacts }: QuickContactsSectionProps) {
           </div>
         )}
 
-        <div className="space-y-4">
-          {otherContacts.map((contact) => (
-            <ContactCard key={contact.id} contact={contact} />
-          ))}
-        </div>
+        <Card>
+          <CardHeader className="pb-4">
+            <CardTitle className="text-lg">Supporting Team</CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-4">
+            {otherContacts.map((contact) => (
+              <ContactCard key={contact.id} contact={contact} />
+            ))}
+          </CardContent>
+        </Card>
       </div>
     </section>
   );

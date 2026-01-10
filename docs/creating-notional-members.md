@@ -1,13 +1,17 @@
-# Creating Notional Members in Baserow
+# Creating Notional Data in Baserow
 
-This guide explains how to create notional (test/demo) member records in the Baserow database using the scripts provided.
+This guide explains how to create notional (test/demo) records in the Baserow database using the scripts provided.
 
 ## Overview
 
-Two scripts are available in the `/scripts` directory:
+Scripts are available in the `/scripts` directory:
 
+### Member Scripts
 1. **`seed-members.ts`** - Creates new member records
 2. **`update-members.ts`** - Updates existing members with additional data (headshots, linked records, etc.)
+
+### Event & Deal Scripts
+3. **`seed-events-deals.ts`** - Creates portfolio companies, deals, and events with cover photos
 
 ## Prerequisites
 
@@ -324,3 +328,80 @@ const response = await fetch(`${BASEROW_API_URL}/api/database/rows/table/347/?us
 | Geographies | 751 | Geographic regions |
 | Personal Hobbies | 753 | Member hobbies |
 | Non-Profit Interests | 755 | Charitable interests |
+| Deals | 756 | Investment opportunities |
+| Portfolio Companies | 757 | Companies with deals |
+| Events | 769 | Member events |
+| Event Registrations | 770 | Event attendance |
+| Deal Process | 772 | Member deal participation |
+
+---
+
+## Script 3: Events & Deals (`seed-events-deals.ts`)
+
+### Usage
+
+```bash
+npx tsx scripts/seed-events-deals.ts
+```
+
+### What It Creates
+
+Creates records in three tables in dependency order:
+
+1. **Portfolio Companies** (8 companies) - Tech, real estate, healthcare, energy companies
+2. **Deals** (8 deals) - Investment opportunities linked to companies
+3. **Events** (6 events) - Exclusive gatherings with cover photos
+
+### Events Created
+
+| Event | Location | Date |
+|-------|----------|------|
+| Monaco Wealth Summit 2026 | Monaco | Mar 15-17, 2026 |
+| Aspen Winter Retreat | Aspen, CO | Feb 20-22, 2026 |
+| NYC Private Dinner: AI & Finance | New York, NY | Jan 25, 2026 |
+| London Financial Leaders Roundtable | London, UK | Apr 10, 2026 |
+| Singapore Asia Investment Forum | Singapore | May 8-9, 2026 |
+| Napa Valley Vineyard Experience | Napa, CA | Jun 12-13, 2026 |
+
+### Deals Created
+
+| Deal | Company | Size | Stage |
+|------|---------|------|-------|
+| Nexus AI Series C | Nexus AI Labs | $150M | Growth |
+| Meridian NYC Tower | Meridian Real Estate | $500M | Late Stage |
+| BioVenture Gene Therapy | BioVenture Therapeutics | $75M | Series A/B/C |
+| CleanGrid Solar | CleanGrid Energy | $200M | Growth |
+| Stellar Dubai Resort | Stellar Hospitality | $350M | Late Stage |
+| Alpine Logistics Fund | Alpine Infrastructure | $400M | Funds |
+| Quantum Digital Banking | Quantum Fintech | $80M | Series A/B/C |
+| Evergreen Vertical Farming | Evergreen Agriculture | $60M | Growth |
+
+### Cover Photo Strategy
+
+Events use high-quality images from Unsplash:
+- **Dimensions**: 800x450px (16:9 aspect ratio)
+- **Format**: Auto-uploaded via Baserow's upload-via-url endpoint
+
+Example URLs used:
+```
+https://images.unsplash.com/photo-1534258936925-c58bed479fcb?w=800&h=450&fit=crop  # Monaco
+https://images.unsplash.com/photo-1551524559-8af4e6624178?w=800&h=450&fit=crop  # Aspen
+https://images.unsplash.com/photo-1534430480872-3498386e7856?w=800&h=450&fit=crop  # NYC
+```
+
+### Key IDs for Events & Deals
+
+**Stage IDs (for Deals)**:
+- Startup / Seed: 2
+- A, B, or C Rounds: 3
+- Growth Stage: 4
+- Late Stage / Exit: 5
+- Funds: 8
+
+**Member IDs (for sourcing/suggestions)**:
+- Warren Buffett: 4
+- Jamie Dimon: 5
+- Jensen Huang: 10
+- Larry Fink: 15
+- Ken Griffin: 17
+- (See full list in members documentation)

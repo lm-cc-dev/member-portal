@@ -1,0 +1,95 @@
+{
+  "fieldMapping": {
+    "Member ID": "field_3390",
+    "Email": "field_3602",
+    "Onboarding Status": "field_4410",
+    "Capital Vehicle": "field_7192",
+    "Source of Wealth": "field_7193",
+    "Association to Capital": "field_7194",
+    "AUM": "field_7195",
+    "Capital Discretion": "field_7196",
+    "Association to Capital Details": "field_7198",
+    "Capital Discretion Details": "field_7199",
+    "Name": "field_7200",
+    "Sector Preference": "field_7205",
+    "Stage Preference": "field_7208",
+    "Geographies": "field_7216",
+    "Average Check Size": "field_7217",
+    "Capital Limitations & Opportunities": "field_7218",
+    "Liquidity / Exit Horizon Preference": "field_7219",
+    "Funding Types": "field_7220",
+    "Accredited Investor": "field_7221",
+    "Reason Not Accredited": "field_7222",
+    "Birthday": "field_7231",
+    "Personal Hobbies": "field_7234",
+    "Other Hobbies": "field_7236",
+    "Non-Profit Interests": "field_7240",
+    "Other Non-Profit Interests": "field_7241",
+    "Phone #": "field_7245",
+    "Member Status": "field_7246",
+    "Portal ID": "field_7285",
+    "Title": "field_7286",
+    "Bio": "field_7287",
+    "Headshot": "field_7288"
+  },
+  "selectOptions": {
+    "AUM": [
+      {"label": "0 - 30 million", "id": 3063, "color": "blue"},
+      {"label": "30 - 100 million", "id": 3064, "color": "green"},
+      {"label": "100 - 250 million", "id": 3065, "color": "cyan"},
+      {"label": "250 - 1 billion", "id": 3066, "color": "orange"},
+      {"label": "> 1 billion", "id": 3067, "color": "red"},
+      {"label": "N/A", "id": 3068, "color": "gray"}
+    ],
+    "Liquidity / Exit Horizon Preference": [
+      {"label": "Illiquid (5+ Years)", "id": 3084, "color": "darker-red"},
+      {"label": "Semi-Liquid (Quarterly or Annual)", "id": 3085, "color": "cyan"},
+      {"label": "Very Liquid Only (Weekly or Monthly Liquidity)", "id": 3086, "color": "orange"},
+      {"label": "Publicly Traded Only", "id": 3087, "color": "yellow"},
+      {"label": "Opportunity Specific (All)", "id": 3083, "color": "darker-green"}
+    ],
+    "Funding Types": [
+      {"label": "Equity", "id": 3089, "color": "dark-red"},
+      {"label": "Debt", "id": 3090, "color": "cyan"},
+      {"label": "Convertible Note/SAFE", "id": 3091, "color": "orange"},
+      {"label": "Acquisition", "id": 3092, "color": "yellow"},
+      {"label": "Buy-out", "id": 3093, "color": "red"},
+      {"label": "M&A", "id": 3094, "color": "purple"},
+      {"label": "Opportunity Specific (All)", "id": 3088, "color": "darker-green"}
+    ],
+    "Capital Limitations & Opportunities": [
+      {"label": "No general restrictions", "id": 3078, "color": "blue"},
+      {"label": "Do not invest in SPVs", "id": 3079, "color": "green"},
+      {"label": "Do not invest in funds", "id": 3080, "color": "cyan"},
+      {"label": "Minority founder groups", "id": 3081, "color": "orange"},
+      {"label": "Impact-oriented", "id": 3082, "color": "yellow"}
+    ]
+  },
+  "linkedTables": {
+    "Sector Preference": {
+      "tableId": 746,
+      "primaryFieldId": 7201,
+      "primaryFieldName": "Name"
+    },
+    "Stage Preference": {
+      "tableId": 748,
+      "primaryFieldId": 7207,
+      "primaryFieldName": "Stage Name"
+    },
+    "Geographies": {
+      "tableId": 751,
+      "primaryFieldId": 7212,
+      "primaryFieldName": "Name"
+    },
+    "Personal Hobbies": {
+      "tableId": 753,
+      "primaryFieldId": 7233,
+      "primaryFieldName": "Name"
+    },
+    "Non-Profit Interests": {
+      "tableId": 755,
+      "primaryFieldId": 7238,
+      "primaryFieldName": "Name"
+    }
+  }
+}

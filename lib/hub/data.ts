@@ -147,21 +147,24 @@ export const CONTACTS: Contact[] = [
     email: "kerri@collaborationcircle.com",
     phone: "+1 (555) 123-4567",
     headshotPath: "/kerri_scott_headshot.jpeg",
+    bio: "Orchestrates world-class gatherings that bring together visionary leaders and capital partners.",
   },
   {
-    id: "jane-doe",
-    name: "Jane Doe",
+    id: "maya-chen",
+    name: "Maya Chen",
     role: "Member Relations",
-    email: "jane@collaborationcircle.com",
+    email: "maya@collaborationcircle.com",
     phone: "+1 (555) 234-5678",
-    headshotPath: "/kerri_scott_headshot.jpeg", // Placeholder - update later
+    headshotPath: "/maya_chen_headshot.jpg",
+    bio: "Your dedicated point of contact for onboarding, introductions, and member experience.",
   },
   {
-    id: "john-doe",
-    name: "John Doe",
+    id: "david-okonkwo",
+    name: "David Okonkwo",
     role: "Operations Manager",
-    email: "john@collaborationcircle.com",
+    email: "david@collaborationcircle.com",
     phone: "+1 (555) 345-6789",
-    headshotPath: "/kerri_scott_headshot.jpeg", // Placeholder - update later
+    headshotPath: "/david_okonkwo_headshot.jpg",
+    bio: "Keeps the Circle running smoothly behind the scenes with precision and care.",
   },
 ];
