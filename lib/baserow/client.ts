@@ -5,6 +5,7 @@
  * Handles authentication and error handling.
  */
 
+import { unstable_noStore as noStore } from 'next/cache';
 import { BASEROW_API_URL, BASEROW_API_KEY } from './config';
 
 export class BaserowError extends Error {
@@ -29,6 +30,9 @@ export async function baserowFetch<T = any>(
   endpoint: string,
   options: RequestInit = {}
 ): Promise<T> {
+  // Opt out of caching for all Baserow requests
+  noStore();
+
   if (!BASEROW_API_KEY) {
     throw new Error('BASEROW_API_KEY is not configured');
   }
@@ -38,7 +42,6 @@ export async function baserowFetch<T = any>(
   try {
     const response = await fetch(url, {
       ...options,
-      cache: 'no-store', // Prevent Next.js caching issues
       headers: {
         'Authorization': `Token ${BASEROW_API_KEY}`,
         'Content-Type': 'application/json',

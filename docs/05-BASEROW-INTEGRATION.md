@@ -381,23 +381,90 @@ export const TABLES = {
 };
 ```
 
+## API Token Types
+
+Baserow has two authentication methods with different capabilities:
+
+### Database Tokens (API Tokens)
+
+Created via Settings → API tokens. These tokens are used for **row-level operations only**:
+
+- ✅ Read rows
+- ✅ Create rows
+- ✅ Update rows
+- ✅ Delete rows
+- ❌ **Cannot** create/modify fields (schema changes)
+- ❌ **Cannot** create/modify tables
+
+```bash
+# Row operations use "Token" prefix
+curl -H "Authorization: Token YOUR_API_TOKEN" \
+  https://baserow-production-9f1c.up.railway.app/api/database/rows/table/TABLE_ID/
+```
+
+### JWT Authentication (User Login)
+
+Required for **schema modifications** (adding fields, creating tables, etc.):
+
+```bash
+# Step 1: Get JWT token via login
+curl -X POST "https://baserow-production-9f1c.up.railway.app/api/user/token-auth/" \
+  -H "Content-Type: application/json" \
+  -d '{"email": "your@email.com", "password": "your_password"}'
+
+# Response includes: { "token": "eyJ...", "access_token": "eyJ...", ... }
+
+# Step 2: Use JWT for schema operations
+curl -X POST "https://baserow-production-9f1c.up.railway.app/api/database/fields/table/TABLE_ID/" \
+  -H "Authorization: JWT eyJ..." \
+  -H "Content-Type: application/json" \
+  -d '{
+    "name": "New Field",
+    "type": "single_select",
+    "select_options": [
+      {"value": "Option 1", "color": "blue"},
+      {"value": "Option 2", "color": "green"}
+    ]
+  }'
+```
+
+### When to Use Each
+
+| Operation | Token Type |
+|-----------|------------|
+| Read/write rows | Database Token (`Token xxx`) |
+| List fields | Database Token (`Token xxx`) |
+| Create/delete fields | JWT (`JWT xxx`) |
+| Create/delete tables | JWT (`JWT xxx`) |
+
 ## Testing with curl
 
 ```bash
 # List tables
 curl -H "Authorization: Token YOUR_TOKEN" \
-  https://api.baserow.io/api/database/tables/
+  https://baserow-production-9f1c.up.railway.app/api/database/tables/
 
 # Get rows
 curl -H "Authorization: Token YOUR_TOKEN" \
-  https://api.baserow.io/api/database/rows/table/TABLE_ID/
+  https://baserow-production-9f1c.up.railway.app/api/database/rows/table/TABLE_ID/
 
 # Create row
 curl -X POST \
   -H "Authorization: Token YOUR_TOKEN" \
   -H "Content-Type: application/json" \
   -d '{"field_123": "value"}' \
-  https://api.baserow.io/api/database/rows/table/TABLE_ID/
+  https://baserow-production-9f1c.up.railway.app/api/database/rows/table/TABLE_ID/
+
+# List fields in a table
+curl -H "Authorization: Token YOUR_TOKEN" \
+  https://baserow-production-9f1c.up.railway.app/api/database/fields/table/TABLE_ID/
+
+# Create a new field (requires JWT)
+curl -X POST \
+  -H "Authorization: JWT YOUR_JWT_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{"name": "Field Name", "type": "text"}' \
+  https://baserow-production-9f1c.up.railway.app/api/database/fields/table/TABLE_ID/
 ```
 
 ## Troubleshooting

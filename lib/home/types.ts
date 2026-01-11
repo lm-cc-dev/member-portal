@@ -63,6 +63,13 @@ export interface EventRegistration {
   'Date Registered': string | null;
 }
 
+// Single select option from Baserow
+export interface SingleSelectOption {
+  id: number;
+  value: string;
+  color?: string;
+}
+
 // Deal from Baserow Deals table (756)
 export interface BaserowDeal {
   id: number;
@@ -82,6 +89,23 @@ export interface BaserowDeal {
   'Deal Process': LinkedRecord[];
   'Deal Room Link': string | null;
   'Total Check Size': string | null;
+  // Additional fields for deal detail page
+  'Logo': BaserowFile[] | null;
+  'Company Contact Name': string | null;
+  'Company Contact Email': string | null;
+  'IRR': string | null;
+  'Holding Period': string | null;
+  'MOIE': string | null;
+  'Fees': string | null;
+  'Zoom Call Notes': string | null;
+  'Deal Type Category': SingleSelectOption | null;
+  'Private Equity Type': SingleSelectOption | null;
+  'Private Credit Type': SingleSelectOption | null;
+  'Venture Type': SingleSelectOption | null;
+  'Real Estate Type': SingleSelectOption | null;
+  'Status': SingleSelectOption | null;
+  'Priority': SingleSelectOption | null;
+  'Deck': BaserowFile[] | null;
 }
 
 // Deal Process from Baserow Deal Process table (772)
@@ -104,6 +128,13 @@ export interface PortfolioCompany {
   'Website': string | null;
   'Sector': LinkedRecord[];
   'Region': LinkedRecord[];
+  'Management Highlights': string | null;
+}
+
+// Deal detail with company info and NDA status (for detail page)
+export interface DealDetail extends BaserowDeal {
+  company: PortfolioCompany | null;
+  hasSignedNDA: boolean;
 }
 
 // Stage from Baserow Stages table (748)

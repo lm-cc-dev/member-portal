@@ -1,0 +1,15 @@
+{
+  "mcpServers": {
+    "shadcn": {
+      "command": "npx",
+      "args": ["shadcn@latest", "mcp"]
+    },
+    "Baserow MCP": {
+      "command": "npx",
+      "args": [
+        "mcp-remote",
+        "https://baserow-production-9f1c.up.railway.app/mcp/5liuVo8dezuIHKsMB8gLHx7dJdvGkS5s/sse"
+      ]
+    }
+  }
+}

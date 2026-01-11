@@ -31,6 +31,10 @@ export const TABLES = {
   DEAL_PROCESS: 772,
   INTROS: 774,
   MEMBER_CONNECTIONS: 775,
+  // Comment tables
+  DEAL_COMMENTS: 778,
+  SAMIRA_COMMENTS: 779,
+  STEERCO_COMMENTS: 780,
 } as const;
 
 /**
@@ -42,6 +46,54 @@ export const INTRO_STATUS_OPTIONS = {
   SCHEDULED: 3115,
   COMPLETED: 3116,
   DECLINED: 3117,
+} as const;
+
+/**
+ * Deal Comments Table Field IDs (Table 778)
+ */
+export const DEAL_COMMENTS_FIELDS = {
+  DEAL: 'field_7459',
+  AUTHOR: 'field_7461',
+  COMMENT_TEXT: 'field_7463',
+  DOCUMENTS: 'field_7464',
+  IS_ANONYMOUS: 'field_7465',
+  STEERCO_ONLY: 'field_7466',
+  IS_DELETED: 'field_7467',
+  CREATED_DATE: 'field_7468',
+  LAST_UPDATED: 'field_7469',
+} as const;
+
+/**
+ * Samira Comments Table Field IDs (Table 779)
+ */
+export const SAMIRA_COMMENTS_FIELDS = {
+  DEAL: 'field_7473',
+  TARGET_MEMBERS: 'field_7475',
+  COMMENT_TEXT: 'field_7477',
+  DOCUMENTS: 'field_7478',
+  IS_DELETED: 'field_7479',
+  CREATED_DATE: 'field_7480',
+  LAST_UPDATED: 'field_7481',
+} as const;
+
+/**
+ * Steering Committee Comments Table Field IDs (Table 780)
+ */
+export const STEERCO_COMMENTS_FIELDS = {
+  DEAL: 'field_7485',
+  AUTHOR: 'field_7487',
+  COMMENT_TEXT: 'field_7489',
+  DOCUMENTS: 'field_7490',
+  IS_DELETED: 'field_7491',
+  CREATED_DATE: 'field_7492',
+  LAST_UPDATED: 'field_7493',
+} as const;
+
+/**
+ * Additional Deals Table Field IDs
+ */
+export const DEALS_FIELDS = {
+  STEERCO_MEMBERS: 'field_7494',
 } as const;
 
 /**

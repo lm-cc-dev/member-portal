@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import {
@@ -41,7 +42,8 @@ export function DealCard({ deal, variant }: DealCardProps) {
   const invested = isInvestedDeal(deal) ? deal : null;
 
   return (
-    <Card className="overflow-hidden hover:shadow-md transition-shadow h-full flex flex-col !pt-0 !gap-0">
+    <Link href={`/deals/${deal.id}`} className="block h-full">
+      <Card className="overflow-hidden hover:shadow-md transition-shadow h-full flex flex-col !pt-0 !gap-0 cursor-pointer">
       {/* Cover Photo / Company Logo */}
       <div className="relative aspect-[16/9] bg-muted overflow-hidden">
         {deal.coverPhoto ? (
@@ -157,5 +159,6 @@ export function DealCard({ deal, variant }: DealCardProps) {
         )}
       </CardContent>
     </Card>
+    </Link>
   );
 }
